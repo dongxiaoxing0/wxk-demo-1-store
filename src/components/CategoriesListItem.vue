@@ -14,15 +14,13 @@
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-type CategoriesGroup = {
-    groupTitle: string;
-    group: string[];
-};
+// type CategoriesGroup = {
+//     groupTitle: string;
+//     group: string[];
+// };
 @Component
 export default class CategoriesListItem extends Vue {
-  @Prop() categoriesGroup!: CategoriesGroup
-  
-      
+  @Prop() categoriesGroup!: CategoriesGroup      
 }
 </script>
 

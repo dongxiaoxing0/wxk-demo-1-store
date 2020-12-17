@@ -51,15 +51,14 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import CategoriesListItem from '@/components/CategoriesListItem.vue';
 
-type CategoriesGroup = {
-  groupTitle: string;
-  group: string[];
-};
+// type CategoriesGroup = {
+//   groupTitle: string;
+//   group: string[];
+// };
 
 @Component({
   components: { CategoriesListItem }
-}
-)
+})
 export default class Categories extends Vue {
   value = '';
   tabBarActive = 0;

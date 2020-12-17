@@ -246,42 +246,16 @@
           <van-tab title="推荐商品">
             <van-row type="flex" justify="center">
               <van-col span="12">
-                <ul class="productList firstCol">
-                  <li>
-                    <van-image
-                      height="200"
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
-                    />
-                    <span>坚果 三脚架</span>
-                    <span>￥69.00</span>
-                  </li>
-                  <li>
-                    <van-image
-                      height="200"
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
-                    />
-                    <span>坚果 三脚架</span>
-                    <span>￥69.00</span>
+                <ul class="productList secondCol">          
+                  <li v-for="(item,index) in productList" :key="index">
+                    <ProductDisplay :productItem="item" ></ProductDisplay>
                   </li>
                 </ul>
               </van-col>
               <van-col span="12">
-                <ul class="productList secondCol">
-                  <li>
-                    <van-image
-                      height="150"
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
-                    />
-                    <span>坚果 三脚架</span>
-                    <span>￥69.00</span>
-                  </li>
-                  <li>
-                    <van-image
-                      height="150"
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
-                    />
-                    <span>坚果 三脚架</span>
-                    <span>￥69.00</span>
+                <ul class="productList secondCol">          
+                  <li v-for="(item,index) in productList" :key="index">
+                    <ProductDisplay :productItem="item" ></ProductDisplay>
                   </li>
                 </ul>
               </van-col>
@@ -318,6 +292,27 @@ export default class Home extends Vue {
   tabBarUrl = [
     '/', '/goods', '/categories', '/goods',
   ];
+    productList: ProductItem[] = [
+    
+    {
+      name: '坚果 三脚架',
+      price: 69.00,
+      src: 'https://img.yzcdn.cn/vant/cat.jpeg',
+      imgHeight: '150',
+    },
+    {
+      name: '坚果 三脚架',
+      price: 69.00,
+      src: 'https://img.yzcdn.cn/vant/cat.jpeg',
+      imgHeight: '150',
+    },
+    {
+      name: '坚果 三脚架',
+      price: 69.00,
+      src: 'https://img.yzcdn.cn/vant/cat.jpeg',
+      imgHeight: '150',
+    },
+  ]
 
   mounted() {
     this.tabBarActive = this.tabBarUrl.indexOf(this.$route.path);
