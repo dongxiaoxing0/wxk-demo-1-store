@@ -442,6 +442,9 @@ export default class Home extends Vue {
     padding-left: 4px;
     padding-bottom: 2px;
     font-size: 12px;
+    &:nth-child(3){
+      color:red;
+    }
   }
   .newBig {
     border-radius: 5px;
