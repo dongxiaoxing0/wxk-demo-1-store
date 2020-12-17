@@ -90,18 +90,23 @@ export default class Goods extends Vue {
 </script>
 <style lang="scss" scoped>
 .productList {
-  border: 1px solid red;
   > li {
     margin:10px;
-    height: 200px;
     width: calc(100% - 20px);
-    border: 1px solid red;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
     > span {
       display: block;
+      padding-left:8px;
+      padding-top: 4px;
+      padding-bottom:4px;
+      font-size: 12px;
+      &:nth-child(3){
+        color: red;
+      }
     }
+    
   }
   &.firstCol > li {
-    height: 250px;
   }
 }
 </style>

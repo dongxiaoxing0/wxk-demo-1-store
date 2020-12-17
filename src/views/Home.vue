@@ -25,22 +25,33 @@
               <span>{{ userAmount }}万人已关注</span>
             </p>
           </div>
-          <van-button round plain color="#b3b3b3" type="info" size="mini">
+          <van-button
+            round
+            plain
+            :color="subscribed.likeColor"
+            type="info"
+            size="mini"
+            @click="subscribeToggle"
+          >
             <div class="like">
-              <van-icon name="like-o" size="10" />
+              <div>
+                <van-icon
+                  :name="subscribed.heart"
+                  :color="subscribed.likeColor"
+                  size="10"
+                />
+              </div>
               <span>关注</span>
             </div>
           </van-button>
         </div>
-        <van-button plain type="info" color="#fbc926" size="mini"
-          >金牌商家</van-button
-        >
-        <van-button plain type="info" color="#fa5d16" size="mini"
-          >世界五百强</van-button
-        >
-        <van-button plain type="info" color="#0d6edd" size="mini"
-          >口碑商家</van-button
-        >
+
+        <div class="tags">
+        <span>金牌商家</span>
+        <span>世界五百强</span>
+        <span>口碑商家</span>
+        </div>
+
       </div>
 
       <van-search
@@ -66,7 +77,7 @@
           <van-col span="8">
             <div class="newBig">
               <van-image
-                height="180"
+                height="160"
                 src="https://img.yzcdn.cn/vant/cat.jpeg"
               />
               <span>坚果 R2</span>
@@ -230,57 +241,55 @@
         </div>
       </div>
 
-
       <div class="recommend">
-      <van-tabs v-model="tabActive">
-        <van-tab title="推荐商品">
-          <van-row type="flex" justify="center">
-            <van-col span="12">
-              <ul class="productList firstCol">
-                <li>
-                  <van-image
-                    height="200"
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
-                  />
-                  <span>坚果 三脚架</span>
-                  <span>￥69.00</span>
-                </li>
-                <li>
-                  <van-image
-                    height="200"
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
-                  />
-                  <span>坚果 三脚架</span>
-                  <span>￥69.00</span>
-                </li>
-              </ul>
-            </van-col>
-            <van-col span="12">
-              <ul class="productList secondCol">
-                <li>
-                  <van-image
-                    height="150"
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
-                  />
-                  <span>坚果 三脚架</span>
-                  <span>￥69.00</span>
-                </li>
-                <li>
-                  <van-image
-                    height="150"
-                    src="https://img.yzcdn.cn/vant/cat.jpeg"
-                  />
-                  <span>坚果 三脚架</span>
-                  <span>￥69.00</span>
-                </li>
-              </ul>
-            </van-col>
-          </van-row>
-        </van-tab>
+        <van-tabs v-model="tabActive">
+          <van-tab title="推荐商品">
+            <van-row type="flex" justify="center">
+              <van-col span="12">
+                <ul class="productList firstCol">
+                  <li>
+                    <van-image
+                      height="200"
+                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                    />
+                    <span>坚果 三脚架</span>
+                    <span>￥69.00</span>
+                  </li>
+                  <li>
+                    <van-image
+                      height="200"
+                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                    />
+                    <span>坚果 三脚架</span>
+                    <span>￥69.00</span>
+                  </li>
+                </ul>
+              </van-col>
+              <van-col span="12">
+                <ul class="productList secondCol">
+                  <li>
+                    <van-image
+                      height="150"
+                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                    />
+                    <span>坚果 三脚架</span>
+                    <span>￥69.00</span>
+                  </li>
+                  <li>
+                    <van-image
+                      height="150"
+                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                    />
+                    <span>坚果 三脚架</span>
+                    <span>￥69.00</span>
+                  </li>
+                </ul>
+              </van-col>
+            </van-row>
+          </van-tab>
 
-        <van-tab title="附近店铺">内容 2</van-tab>
-      </van-tabs>
-
+          <van-tab title="附近店铺">内容 2</van-tab>
+        </van-tabs>
       </div>
     </main>
 
@@ -297,7 +306,7 @@
 // @ is an alias to /src
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import { Toast, Notify } from 'vant';
+import { Toast } from 'vant';
 
 
 @Component
@@ -309,6 +318,7 @@ export default class Home extends Vue {
   tabBarUrl = [
     '/', '/goods', '/categories', '/goods',
   ];
+
   mounted() {
     this.tabBarActive = this.tabBarUrl.indexOf(this.$route.path);
   }
@@ -322,6 +332,25 @@ export default class Home extends Vue {
     const url = this.tabBarUrl[index];
     if (url !== this.$route.path) {
       this.$router.push(url);
+    }
+  }
+
+  subscribeState = {
+    on: {
+      likeColor: 'red',
+      heart: 'like'
+    },
+    off: {
+      likeColor: '#b3b3b3',
+      heart: 'like-o'
+    }
+  };
+  subscribed = this.subscribeState.off;
+  subscribeToggle() {
+    if (this.subscribed === this.subscribeState.off) {
+      this.subscribed = this.subscribeState.on;
+    } else {
+      this.subscribed = this.subscribeState.off;
     }
   }
 }
@@ -354,12 +383,35 @@ export default class Home extends Vue {
       }
     }
     .like {
+      padding-top: 2px;
       display: flex;
       align-items: center;
       justify-content: space-around;
       > span {
         padding-left: 2px;
       }
+    }
+  }
+  .tags{
+    > span{
+      border: 1px solid;
+      padding:2px;
+      padding-top: 4px;
+      margin-left:4px;
+      font-size:10px;
+      border-radius: 2px;
+    }
+    > span:nth-child(1){
+      color:#fbc926;
+      border-color: #fbc926;
+    }
+    > span:nth-child(2){
+      color:#fa5d16;
+      border-color: #fa5d16;
+    }
+    > span:nth-child(3){
+      color:#0d6edd;
+      border-color: #0d6edd;
     }
   }
 }
@@ -382,25 +434,34 @@ export default class Home extends Vue {
     font-weight: bold;
     margin-bottom: 5px;
   }
+  span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 4px;
+    padding-bottom: 2px;
+    font-size: 12px;
+  }
   .newBig {
-    height: 205px;
-    border: 1px solid red;
     border-radius: 5px;
-    background-color: #fffeff;
+    background-color: #fafafa;
+    overflow: hidden;
+    span:nth-child(2){
+      padding-bottom:6px;
+    }
   }
   .newSmall {
-    height: 100px;
-    border: 1px solid red;
     border-radius: 5px;
-    background-color: #fffeff;
+    background-color: #fafafa;
     margin-bottom: 5px;
+    overflow: hidden;
   }
 }
 .hotSales-wrapper {
   padding: 20px 10px;
   background-color: #fafafa;
   .hotSales {
-    border: 1px solid red;
     border-radius: 10px;
     padding: 10px;
     h2 {
@@ -409,23 +470,26 @@ export default class Home extends Vue {
       font-weight: bold;
       margin-bottom: 5px;
     }
-
+    span {
+      font-size: 12px;
+      color: red;
+    }
     .hotSalesFirstRow {
-      border: 1px solid red;
-      height: 100px;
-      padding: 10px;
-      > span {
-        text-align: center;
-      }
+      padding: 5px;
+      margin-bottom: 8px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 5px;
     }
     .hotSalesSecondRow {
-      border: 1px solid red;
-      height: 120px;
-      padding: 10px;
-
+      padding: 5px;
+      background-color: #fff;
+      border-radius: 5px;
       > span {
         display: block;
         text-align: center;
+        font-size: 12px;
+        padding-top: 4px;
       }
       > span:nth-of-type(odd) {
         background-color: red;
@@ -433,26 +497,30 @@ export default class Home extends Vue {
         border-radius: 8px;
         padding: 2px 4px;
         white-space: nowrap;
-        font-size: 0.3rem;
+        font-size: 10px;
       }
     }
   }
 }
-.recommend{
+.recommend {
   .productList {
-  border: 1px solid red;
-  > li {
-    margin:10px;
-    height: 200px;
-    width: calc(100% - 20px);
-    border: 1px solid red;
-    > span {
-      display: block;
+    > li {
+      margin: 10px;
+      width: calc(100% - 20px);
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+      > span {
+        display: block;
+        padding-left: 8px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-size: 12px;
+        &:nth-child(3) {
+          color: red;
+        }
+      }
     }
+    // &.firstCol > li {
+    // }
   }
-  &.firstCol > li {
-    height: 250px;
-  }
-}
 }
 </style>

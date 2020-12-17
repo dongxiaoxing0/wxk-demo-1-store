@@ -32,11 +32,11 @@ export default class CategoriesListItem extends Vue {
     &::before{
         display: block;
         content: '';
-        height: 21px;
+        height: 50%;
         width: 4px;
         background-color: #0068dc;
         position: absolute;
-        top: 14px;
+        top: 25%;
         left: 0px;
     }
 }
