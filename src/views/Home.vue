@@ -505,20 +505,7 @@ export default class Home extends Vue {
     > li {
       margin: 10px;
       width: calc(100% - 20px);
-      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-      > span {
-        display: block;
-        padding-left: 8px;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        font-size: 12px;
-        &:nth-child(3) {
-          color: red;
-        }
       }
-    }
-    // &.firstCol > li {
-    // }
   }
 }
 </style>
