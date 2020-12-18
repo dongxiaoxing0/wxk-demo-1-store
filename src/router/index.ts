@@ -4,6 +4,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import Goods from '@/views/Goods.vue'
 import Categories from '@/views/Categories.vue'
+import NotFound from '@/views/NotFound.vue'
 
 
 Vue.use(VueRouter)
@@ -11,18 +12,19 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
     component: Home
   },
   {
     path: '/goods',
-    name: 'Goods',
     component: Goods,
   },
   {
     path: '/categories',
-    name: 'Categories',
     component: Categories,
+  },
+  {
+    path: '*',
+    component: NotFound,
   },
   // {
   //   path: '/about',
