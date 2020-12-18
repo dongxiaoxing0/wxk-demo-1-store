@@ -5,9 +5,12 @@ import router from './router'
 import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
-import ProductDisplay from '@/components/ProductDisplay.vue';
+import ProductDisplay from '@/components/ProductDisplay.vue'
+import Nav from '@/components/Nav.vue'
 
 Vue.component('ProductDisplay',ProductDisplay);
+Vue.component('Nav',Nav);
+
 
 
 Vue.use(Vant);

@@ -6,6 +6,7 @@
           </van-tab>
           <van-tab title="全部消息">内容 2</van-tab>
         </van-tabs>
+        <Nav></Nav>
     </div>
 </template>
 
