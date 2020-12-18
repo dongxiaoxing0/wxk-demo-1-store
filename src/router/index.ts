@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 import Goods from '@/views/Goods.vue'
 import Categories from '@/views/Categories.vue'
 import NotFound from '@/views/NotFound.vue'
+import Messages from '@/views/Messages.vue'
 
 
 Vue.use(VueRouter)
@@ -21,6 +22,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/categories',
     component: Categories,
+  },
+  {
+    path: '/messages',
+    component: Messages,
   },
   {
     path: '*',
