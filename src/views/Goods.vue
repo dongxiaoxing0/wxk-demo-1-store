@@ -28,14 +28,14 @@
       <van-col span="12">
         <ul class="productList secondCol">          
           <li v-for="(item,index) in productList" :key="index">
-            <ProductDisplay :productItem="item" ></ProductDisplay>
+            <ProductDisplay :productItem="item" :imgHeight="170" hasPrice></ProductDisplay>
           </li>
         </ul>
       </van-col>
       <van-col span="12">
         <ul class="productList secondCol">          
           <li v-for="(item,index) in productList" :key="index">
-            <ProductDisplay :productItem="item" ></ProductDisplay>
+            <ProductDisplay :productItem="item" :imgHeight="imgHeight" hasPrice></ProductDisplay>
           </li>
         </ul>
       </van-col>
@@ -61,26 +61,23 @@ export default class Goods extends Vue {
     '/', '/goods', 'categories', '/goods',
   ];
   productList: ProductItem[] = [
-    
     {
       name: '坚果 三脚架',
       price: 69.00,
       src: 'https://img.yzcdn.cn/vant/cat.jpeg',
-      imgHeight: '150',
     },
     {
       name: '坚果 三脚架',
       price: 69.00,
       src: 'https://img.yzcdn.cn/vant/cat.jpeg',
-      imgHeight: '150',
     },
     {
       name: '坚果 三脚架',
       price: 69.00,
       src: 'https://img.yzcdn.cn/vant/cat.jpeg',
-      imgHeight: '150',
     },
   ]
+  imgHeight = 150
   mounted(){
     this.tabBarActive = this.tabBarUrl.indexOf(this.$route.path);
   }
@@ -100,6 +97,8 @@ export default class Goods extends Vue {
   > li {
     margin:10px;
     width: calc(100% - 20px);
+    font-size: 12px;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
   }
 }
 </style>

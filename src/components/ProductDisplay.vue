@@ -1,8 +1,10 @@
 <template>
     <div class="productItem">
-        <van-image :height="productItem.imgHeight" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-        <span>{{productItem.name}}</span>
-        <span class="price">￥{{productItem.price}}</span>
+        <van-image :height="imgHeight" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+        <span v-if="!hideName">{{productItem.name}}</span>
+        <span v-if="hasPrice" class="price">￥{{productItem.price}}</span>
+        <span v-if="hasHotSaleTag" class="tag">{{productItem.hotSaleTag}}</span>
+        <span v-if="hasRewardsPoints" class="rewards">{{productItem.rewards}}积分</span>
     </div>
 </template>
 
@@ -13,21 +15,40 @@
     @Component
     export default class ProductDisplay extends Vue {
         @Prop()productItem!: ProductItem
+        @Prop(Number)imgHeight!: number
+        @Prop(Boolean)hideName?: boolean
+        @Prop(Boolean)hasPrice?: boolean
+        @Prop(Boolean)hasRewardsPoints?: boolean
+        @Prop(Boolean)hasHotSaleTag?: boolean
+        @Prop(Boolean)hotSaleTag?: string
     }
 </script>
 
 <style lang="scss" scoped>
   .productItem {
-      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
       > span {
         display: block;
-        padding-left: 8px;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        font-size: 12px;
+        padding-left: 4px;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        font-size: inherit;
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       > .price{
-          color: red;
+        color: red;
+      }
+      >.rewards{
+        color: red;
+        text-align: center;
+      }
+      > .tag{
+        background-color: red;
+        color: white;
+        border-radius: 15px;
+        white-space: nowrap;
+        text-align: center;
       }
   }
 </style>

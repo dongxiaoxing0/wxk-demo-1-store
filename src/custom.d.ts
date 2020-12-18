@@ -4,7 +4,8 @@ type CategoriesGroup = {
 };
 type ProductItem = {
     name: string,
-    price: number,
-    src:string,
-    imgHeight: string,
+    price?: number,
+    src: string,
+    rewards?: number,
+    hotSaleTag?: string
 };
