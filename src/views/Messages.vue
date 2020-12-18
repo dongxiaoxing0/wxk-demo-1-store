@@ -24,6 +24,8 @@
                   text="删除"
                   type="danger"
                   class="delete-button"
+                  :name="index"
+                  @click="deleteMessage"
                 />
               </template>
             </van-swipe-cell>
@@ -51,21 +53,27 @@ export default class Messages extends Vue {
     {
       title: '登录提醒',
       content: '您的会员 苏十七 于2020-12-18登录成功',
-      date: '2020-12-18 12:12:12',
+      date: '2020-12-18 12:12:01',
     },
     {
       title: '登录提醒',
       content: '您的会员 苏十七 于2020-12-18登录成功',
-      date: '2020-12-18 12:12:12',
+      date: '2020-12-18 12:12:02',
     },
     {
       title: '登录提醒',
       content: '您的会员 苏十七 于2020-12-18登录成功',
-      date: '2020-12-18 12:12:12',
+      date: '2020-12-18 12:12:03',
     },
   ];
   onClickLeft() {
     this.$router.back();
+  }
+  deleteMessage(event: MouseEvent ){
+    if(event && event.target){
+      const index = event.target.name;
+      this.messagesList.splice(index,1);
+    }
   }
   
 }
@@ -103,7 +111,7 @@ export default class Messages extends Vue {
                     text-align: end;
                 }
             }
+        }
     }
-  }
 }
 </style>
