@@ -29,10 +29,10 @@
       > span {
         display: block;
         padding-left: 4px;
-        padding-top: 3%;
-        padding-bottom: 3%;
+        padding-top: 2%;
+        padding-bottom: 2%;
         font-size: inherit;
-        white-space: wrap;
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }

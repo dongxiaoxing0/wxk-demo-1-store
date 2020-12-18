@@ -146,6 +146,7 @@ export default class Home extends Vue {
 }
 .newProducts {
   padding: 10px;
+  font-size: 12px;
   > h2 {
     text-align: center;
     font-size: 20px;
