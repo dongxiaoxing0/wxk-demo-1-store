@@ -7,9 +7,13 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import ProductDisplay from '@/components/ProductDisplay.vue'
 import Nav from '@/components/Nav.vue'
+import TopNav from '@/components/TopNav.vue'
+
 
 Vue.component('ProductDisplay',ProductDisplay);
 Vue.component('Nav',Nav);
+Vue.component('TopNav',TopNav);
+
 
 
 

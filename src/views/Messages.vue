@@ -1,6 +1,6 @@
 <template>
     <div>
-        <van-nav-bar title="坚果旗舰店" left-text="返回" left-arrow @click-left="onClickLeft" />
+        <TopNav></TopNav>
         <van-tabs v-model="tabActive">
           <van-tab title="未读消息">
           </van-tab>

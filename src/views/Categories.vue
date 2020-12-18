@@ -1,12 +1,6 @@
 <template>
   <div>
-    <van-nav-bar
-      title="坚果旗舰店"
-      left-text="返回"
-      left-arrow
-      @click-left="onClickLeft"
-    />
-
+    <TopNav></TopNav>
     <van-search
       v-model="value"
       placeholder="请输入搜索关键词"
@@ -45,10 +39,6 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import CategoriesListItem from '@/components/CategoriesListItem.vue';
 
-// type CategoriesGroup = {
-//   groupTitle: string;
-//   group: string[];
-// };
 
 @Component({
   components: { CategoriesListItem }
@@ -76,9 +66,6 @@ export default class Categories extends Vue {
   loading = false;
   finished = false;
   refreshing = false;
-  onClickLeft() {
-    this.$router.back();
-  }
 }
 </script>
 

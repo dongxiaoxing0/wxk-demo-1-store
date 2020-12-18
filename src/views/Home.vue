@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="坚果旗舰店" left-text="返回" left-arrow @click-left="onClickLeft" />
+    <TopNav></TopNav>
     <main>
       <ShopItroductionBar></ShopItroductionBar>
       <van-search v-model="value" placeholder="请输入搜索关键词" shape="round" right-icon="search" left-icon="-"/>
@@ -130,9 +130,6 @@ export default class Home extends Vue {
     },
   ]
   imgHeight = [160,60,150,170]
-  onClickLeft() {
-    this.$router.back();
-  }
 }
 </script>
 <style lang="scss" scope>

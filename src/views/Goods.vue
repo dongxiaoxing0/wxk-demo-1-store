@@ -1,12 +1,6 @@
 <template>
   <div class="goods">
-    <van-nav-bar
-      title="坚果旗舰店"
-      left-text="返回"
-      left-arrow
-      @click-left="onClickLeft"
-    />
-
+    <TopNav></TopNav>
     <van-search
       v-model="value"
       placeholder="请输入搜索关键词"
@@ -69,9 +63,6 @@ export default class Goods extends Vue {
     },
   ]
   imgHeight = 150
-  onClickLeft() {
-    this.$router.back();
-  }
 }
 </script>
 <style lang="scss" scoped>
