@@ -24,8 +24,7 @@
                   text="删除"
                   type="danger"
                   class="delete-button"
-                  :name="index"
-                  @click="deleteMessage"
+                  @click="deleteMessage(index)"
                 />
               </template>
             </van-swipe-cell>
@@ -69,11 +68,8 @@ export default class Messages extends Vue {
   onClickLeft() {
     this.$router.back();
   }
-  deleteMessage(event: MouseEvent ){
-    if(event && event.target){
-      const index = event.target.name;
+  deleteMessage(index: number){
       this.messagesList.splice(index,1);
-    }
   }
   
 }
