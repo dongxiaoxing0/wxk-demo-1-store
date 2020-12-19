@@ -6,6 +6,8 @@ import Goods from '@/views/Goods.vue'
 import Categories from '@/views/Categories.vue'
 import NotFound from '@/views/NotFound.vue'
 import Messages from '@/views/Messages.vue'
+import UserSettings from '@/views/UserSettings.vue'
+
 
 
 Vue.use(VueRouter)
@@ -26,6 +28,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/messages',
     component: Messages,
+  },
+  {
+    path: '/usersettings',
+    component: UserSettings,
   },
   {
     path: '*',
