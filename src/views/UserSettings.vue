@@ -1,5 +1,6 @@
 <template>
     <div>
+        <TopNav title='账户安全'></TopNav>
 
     </div>
 </template>

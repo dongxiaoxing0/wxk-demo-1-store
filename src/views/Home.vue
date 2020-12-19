@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNav></TopNav>
+    <TopNav title='坚果旗舰店'></TopNav>
     <main>
       <ShopItroductionBar></ShopItroductionBar>
       <van-search v-model="value" placeholder="请输入搜索关键词" shape="round" right-icon="search" left-icon="-"/>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNav></TopNav>
+    <TopNav title="站内消息"></TopNav>
     <van-tabs v-model="tabActive">
       <van-tab title="未读消息"> </van-tab>
       <van-tab title="全部消息">
