@@ -95,15 +95,15 @@
 </script>
 
 <style lang="scss" scoped>
-// ::v-deep{
-//     div.van-cell.van-field{
-//         padding:0;
-//         padding-right:20px;
-//     }
-//     .van-field__control{
-//         color:#969799;
-//     }
-// }
+::v-deep{
+    div.van-cell.van-field{
+        padding:0;
+        padding-right:20px;
+    }
+    .van-field__control{
+        color:#969799;
+    }
+}
 .genderPicker,
 .birthDatePicker{
     position:fixed;
